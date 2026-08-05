@@ -1,0 +1,29 @@
+﻿@{
+
+}
+<div>
+	<h1> Create a new Effect</h1>
+	<form asp-action="SaveEffect" asp-area="Home" method="post" target="_self">
+		<label for="fName">Name</label>
+		<input type="text" id="fname" name="fName"/>
+		<label for="fTier">Tier</label>
+		<select id="fTier" name="fTier">
+			<option value="Common">Common</option>
+			<option value="Uncommon">Uncommon</option>
+			<option value="Rare">Rare</option>
+			<option value="Very Rare">Very Rare</option>
+			<option value="Legendary">Legendary</option>
+			<option value="Artifact">Artifact</option>
+		</select>
+		<label for="fType">Type</label>
+		<Select id="fType" name="fType" />
+			<option value="Offense">Offense</option>
+			<option value="Defense">Defense</option>
+			<option value="Restorative">Common</option>
+			<option value="Utility">Utility</option>
+		</select>
+		<label for="fDesc">Description</label>
+		<input type="text" id="fDesc name=fDesc" />
+		<input type="submit" value="Submit" />
+	</form>
+</div>
