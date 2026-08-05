@@ -8,9 +8,15 @@ namespace DMScreen.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private EffectLibrary _effectLibrary;
+        private ItemLibrary _itemLibrary;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            _effectLibrary = new EffectLibrary();
+            _effectLibrary.LoadLibrary();
+            _itemLibrary = new ItemLibrary();
+            _itemLibrary.LoadLibrary();
         }
 
         public IActionResult Index()
@@ -23,9 +29,17 @@ namespace DMScreen.Controllers
             return View();
         }
 
-        public IActionResult SaveEffect()
+        [HttpPost]
+        public IActionResult SaveEffect(string fName, string fTier, string fType, string fDesc)
         {
+            Effect local = new Effect();
+            local.Name = fName;
+            local.Tier = fTier;
+            local.Type = fType;
+            local.Description = fDesc;
 
+            _effectLibrary.Add(local);
+            ViewBag.Message = "Effect Created.";
             return View("CreateEffect");
         }
 

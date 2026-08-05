@@ -1,5 +1,5 @@
 ﻿@{
-
+	
 }
 <div>
 	<h1> Create a new Effect</h1>
@@ -19,11 +19,12 @@
 		<Select id="fType" name="fType" />
 			<option value="Offense">Offense</option>
 			<option value="Defense">Defense</option>
-			<option value="Restorative">Common</option>
+			<option value="Restorative">Restorative</option>
 			<option value="Utility">Utility</option>
 		</select>
 		<label for="fDesc">Description</label>
-		<input type="text" id="fDesc name=fDesc" />
+		<input type="text" id="fDesc" name="fDesc" />
 		<input type="submit" value="Submit" />
 	</form>
+	@ViewBag.Message
 </div>

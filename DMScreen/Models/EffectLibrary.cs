@@ -9,7 +9,7 @@ namespace DMScreen.Models
 
         public EffectLibrary()
         {
-         effectsLibrary = new List<Effect>();  
+            effectsLibrary = new List<Effect>();  
         }
 
         public void SaveLibrary()
@@ -22,6 +22,15 @@ namespace DMScreen.Models
             string jsonLibrary = FileIO.ReadFile("Effects.json");
             EffectLibrary local = JsonSerializer.Deserialize<EffectLibrary>(jsonLibrary);
             effectsLibrary = local.effectsLibrary;
+        }
+
+        public void Add(Effect effect)
+        {
+            if (effect.Validate(effect))
+            {
+                effectsLibrary.Add(effect);
+                SaveLibrary();
+            }
         }
     }
 }
