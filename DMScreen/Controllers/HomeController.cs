@@ -8,23 +8,34 @@ namespace DMScreen.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private FileIO _fileIO;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _fileIO = new FileIO();
         }
 
         public IActionResult Index()
         {
-            Item i = new Item();
-            i.Name = "Test item";
-            i.Description = "This item is crafted by the finest codesmiths, it's handle is made of the purest ones and zeroes";
-            i.Effects.Add("- While wearing this item, you look really really cool");
-            i.Effects.Add("- As an action, hold the item aloft and yell out '404' and it will dissapear!");
+            EffectLibrary elib = new EffectLibrary();
+            elib.effectsLibrary.Add(new Effect { Type = "Utility", Tier = "Uncommon", Description = "As an action, you can conjure a 20-foot radius sphere of errors, all creatures inside the sphere get very frustrated." });
+            elib.SaveLibrary();
 
-            _fileIO.SerialiseItem(i);
-            
+            EffectLibrary elib2 = new EffectLibrary();
+            elib2.LoadLibrary();
+
+            ItemLibrary ilib = new ItemLibrary();
+            ilib.itemLibrary.Add(new Item
+            {
+                Name = "The Ingenburger Legacy",
+                Rarity = "Very Rare",
+                EffectSlots = 4,
+                Description = "The Ingenburger Legacy is the pinnacle of spatulas. Able to flip any burger patty, no matter how stuck to the grill it is.",
+                Effects = { new Effect {Name = "The Flip", Tier ="Very Rare", Type = "Offense", Description = "As part of an attack, slide the spatula under an enemy, flipping them prone."}, new Effect {Name = "The Slide", Tier = "Rare", Type = "Defense",
+                Description = "When hit by an attack, as a reaction, use the spatual to parry the blow, ignoring the hit as if it didn't land."}}
+            });
+            ilib.SaveLibrary();
+
+            ItemLibrary ilib2 = new ItemLibrary();
+            ilib2.LoadLibrary();
             return View();
         }
 
