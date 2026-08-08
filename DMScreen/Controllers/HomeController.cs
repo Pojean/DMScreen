@@ -43,9 +43,12 @@ namespace DMScreen.Controllers
             return View("CreateEffect");
         }
 
-        public IActionResult Privacy()
+        public IActionResult EffectsLibrary()
         {
-            return View();
+            EffectsViewModel model = new EffectsViewModel();
+            model.SortEffectsLibrary(_effectLibrary);
+
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

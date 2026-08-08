@@ -1,0 +1,166 @@
+﻿@model EffectsViewModel
+@{
+
+}
+<div>
+	<h1>Effects Library</h1>
+</div>
+@*
+cool ass button collapse area code
+
+<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#myCollapse">
+Toggle
+</button>
+<div class="collapse" id="myCollapse">
+	<div class="card card-body">
+		Content goes here.
+	</div>
+</div>
+*@
+<div class="LibraryBox">
+
+	<div class="tableBox">
+		<div class="tableHeadline">
+			<h5>Offense</h5>
+		</div>
+
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:55%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Tier</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					@foreach (Effect e in Model.SortedEffects[0])
+					{
+						<tr>
+							<td>@e.Name</td>
+							<td>@e.Type</td>
+							<td>@e.Tier</td>
+							<td>@e.Description</td>
+						</tr>
+					}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="tableBox">
+		<div class="tableHeadline">
+			<h5>Defense</h5>
+		</div>
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:55%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Tier</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (Effect e in Model.SortedEffects[1])
+					{
+						<tr>
+							<td>@e.Name</td>
+							<td>@e.Type</td>
+							<td>@e.Tier</td>
+							<td>@e.Description</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="tableBox">
+		<div class="tableHeadline">
+			<h5>Restorative</h5>
+		</div>
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:55%" />
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Tier</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (Effect e in Model.SortedEffects[2])
+					{
+						<tr>
+							<td>@e.Name</td>
+							<td>@e.Type</td>
+							<td>@e.Tier</td>
+							<td>@e.Description</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+
+	<div class="tableBox">
+		<div class="tableHeadline">
+			<h5>Utility</h5>
+		</div>
+		<div class="table">
+			<table>
+				<colgroup>
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:15%" />
+					<col style="width:55%" />
+				</colgroup>
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Tier</th>
+					<th>Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				@foreach (Effect e in Model.SortedEffects[3])
+				{
+					<tr>
+						<td>@e.Name</td>
+						<td>@e.Type</td>
+						<td>@e.Tier</td>
+						<td>@e.Description</td>
+					</tr>
+				}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>

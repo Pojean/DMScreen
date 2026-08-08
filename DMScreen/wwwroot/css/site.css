@@ -18,5 +18,44 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: rgb(255, 255, 250)
+}
+
+/* EFFECT LIBRARY PAGE */
+
+.tableBox {
+    display:flex;
+    flex-direction: column;
+    align-content:center;
+    margin:auto;
+    width: 80%;
+}
+
+.tableHeadline {
+    display:flex;
+    justify-content:center;
+}
+
+.tableHeadline h5 {
+    font-weight:bold;
+}
+
+.table {
+    width: 100%;
+    border:solid;
+    border-width:1px;
+    border-color:black;
+    border-bottom:none;
+}
+
+.table tbody tr:nth-child(2n+1) {
+    background-color:rgb(240,240,240)
+}
+
+.tr {
+    width: 25%;
+    border:solid;
+    border-width:1px;
+    border-color: black;
 }
