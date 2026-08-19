@@ -1,0 +1,115 @@
+﻿@model ForgeViewModel
+
+<div class="ItemFrame">
+	<div class="ItemInfoFrame">
+		@if (Model.item.Rarity != null)
+		{
+			<p>Add effects first. These are forgotten every time you add an effect.</p>
+		}
+	</div>
+	<div class="ErrorMessage">
+		@if(Model.ErrorMessage != string.Empty)
+		{
+			<p style="color:red">@Model.ErrorMessage</p>
+		}
+	</div>
+	<div class="ItemSlots">
+		@if(Model.item.Rarity!= null)
+		{
+			<form asp-action="ForgeCreateItem" asp-area="Home" method="post" target="_self">
+				<label for="fName">Item Name:</label>
+				<input type="text" id="fName" name="fName" />
+				<label for="fDesc">Item Description:</label>
+				<input type="text" id="fDesc" name="fDesc" />
+				<p>Added effects:</p>
+				<div class="EffectList">
+				@if (Model.item.Effects.Count != 0)
+					{
+						@for (int i = 0; i < Model.item.Effects.Count; i++)
+						{
+							@if (Model.item.Effects[i] != null)
+							{
+								<label>Effect #@i</label>
+								<p>@Model.item.Effects[i].Name</p>
+							}
+						}
+					}
+				</div>
+				<input type="submit" value="Finalize" />
+			</form>
+			<br />
+			<form asp-action="ForgeResetItem" asp-area="Home" method="post" target="_self">
+				<button type="submit">Reset Item</button>
+			</form>
+		}
+		else
+		{
+			<form asp-action="ForgeChooseRarity" asp-area="Home" method="post" target="_self">
+				<label for="fRarity">Please Choose a rarity: </label>
+				<select id="fRarity" name="fRarity">
+					<option value="Common">Common</option>
+					<option value="Uncommon">Uncommon</option>
+					<option value="Rare">Rare</option>
+					<option value="Very Rare">Very Rare</option>
+					<option value="Legendary">Legendary</option>
+					<option value="Artifact">Artifact</option>
+				</select>
+				<label for="fMasterCraft"> Is the item Master Crafted?</label>
+				<input type="checkbox" id="fMasterCraft" name="fMasterCraft" />
+				<input type="submit" value="Choose" />
+			</form>
+		}
+	</div>
+</div>
+
+<div class="OptionsFrame">
+    <div class="OffenseFrame">
+		@foreach(Effect e in Model.effects.SortedEffects[0])
+		{
+			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+				<input type="hidden" íd="fType" name="fType" value="@e.Type"/>
+				<input type="hidden" id="fTier" name="fTier" value="@e.Tier"/>
+				<input type="hidden" id="fName" name="fName" value="@e.Name" />
+				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+				<button type="submit" value="@e.Name">@e.Name</button>
+			</form>
+		}
+
+    </div>
+    <div class="DefenseFrame">
+		@foreach (Effect e in Model.effects.SortedEffects[1])
+		{
+			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+				<input type="hidden" íd="fType" name="fType" value="@e.Type" />
+				<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
+				<input type="hidden" id="fName" name="fName" value="@e.Name" />
+				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+				<button type="submit" value="@e.Name">@e.Name</button>
+			</form>
+		}
+    </div>
+    <div class="RestorationFrame">
+		@foreach (Effect e in Model.effects.SortedEffects[2])
+		{
+			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+				<input type="hidden" íd="fType" name="fType" value="@e.Type" />
+				<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
+				<input type="hidden" id="fName" name="fName" value="@e.Name" />
+				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+				<button type="submit" value="@e.Name">@e.Name</button>
+			</form>
+		}
+    </div>
+    <div class="UtilityFrame">
+		@foreach (Effect e in Model.effects.SortedEffects[3])
+		{
+			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+				<input type="hidden" íd="fType" name="fType" value="@e.Type" />
+				<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
+				<input type="hidden" id="fName" name="fName" value="@e.Name" />
+				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+				<button type="submit" value="@e.Name">@e.Name</button>
+			</form>
+		}
+	</div>
+</div>

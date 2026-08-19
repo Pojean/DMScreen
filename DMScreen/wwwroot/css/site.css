@@ -59,3 +59,44 @@ body {
     border-width:1px;
     border-color: black;
 }
+
+/* THE FORGE PAGE */
+
+.ItemFrame {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.OptionsFrame {
+    display:flex;
+    margin:10px, 10px, 0px, 10px;
+    justify-content:center;
+}
+
+.OptionsFrame button {
+    width:100%;
+    margin: 0px 0px 5px 0px;
+}
+
+.OptionsFrame div {
+    margin:10px;
+}
+
+.OffenseFrame {
+    width:20%;
+}
+
+.DefenseFrame {
+    width:20%;
+}
+
+.RestorationFrame {
+    width:20%;
+}
+
+.UtilityFrame {
+    width:20%;
+}

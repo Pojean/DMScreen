@@ -12,5 +12,37 @@
         {
             Effects = new List<Effect>();
         }
+
+        public void SetRarity(string rarity, bool masterCrafted)
+        {
+            Rarity = rarity;
+            switch(rarity)
+            {
+                case "Common": { EffectSlots = 1; } break;
+                case "Uncommon": { EffectSlots = 2; } break;
+                case "Rare": { EffectSlots = 3; } break;
+                case "Very Rare": { EffectSlots = 4; } break;
+                case "Legendary": { EffectSlots = 5; } break;
+                case "Artifact": { EffectSlots = 6; } break;
+                default: break;
+            }
+
+            if(masterCrafted)
+            {
+                EffectSlots += 1;
+            }
+        }
+
+        public Item ConvertToItem()
+        {
+            Item item = new Item();
+            item.Name = Name;
+            item.Rarity = Rarity;
+            item.EffectSlots = EffectSlots;
+            item.Description = Description;
+            item.Effects = Effects;
+
+            return item;
+        }
     }
 }
