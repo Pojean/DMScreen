@@ -59,3 +59,14 @@ body {
     border-width:1px;
     border-color: black;
 }
+
+/* THE FORGE PAGE */
+
+.OptionsFrame {
+    display:flex;
+    margin:10%
+}
+
+.OffenseFrame {
+    width:20%
+}

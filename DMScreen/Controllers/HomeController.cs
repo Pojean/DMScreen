@@ -10,6 +10,7 @@ namespace DMScreen.Controllers
         private readonly ILogger<HomeController> _logger;
         private EffectLibrary _effectLibrary;
         private ItemLibrary _itemLibrary;
+        private static ItemInProgress _itemInProgress;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -17,6 +18,10 @@ namespace DMScreen.Controllers
             _effectLibrary.LoadLibrary();
             _itemLibrary = new ItemLibrary();
             _itemLibrary.LoadLibrary();
+            if(_itemInProgress == null)
+            {
+                _itemInProgress = new ItemInProgress();
+            }
         }
 
         public IActionResult Index()
@@ -49,6 +54,63 @@ namespace DMScreen.Controllers
             model.SortEffectsLibrary(_effectLibrary);
 
             return View(model);
+        }
+
+        public IActionResult TheForge()
+        {
+            ForgeViewModel model = new ForgeViewModel();
+            model.effects.SortEffectsLibrary(_effectLibrary);
+            model.item = _itemInProgress;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult ForgeChooseRarity(string fRarity, bool fMasterCraft)
+        {
+            _itemInProgress.SetRarity(fRarity, fMasterCraft);
+
+            ForgeViewModel model = new ForgeViewModel();
+            model.effects.SortEffectsLibrary(_effectLibrary);
+            model.item = _itemInProgress;
+
+            return View("TheForge", model);
+        }
+
+        [HttpPost]
+        public IActionResult ForgeAddEffect(string fType, string fTier, string fName, string fDesc)
+        {
+            if (_itemInProgress.Effects.Count < _itemInProgress.EffectSlots)
+            {
+                Effect e = new Effect();
+                e.Name = fName;
+                e.Type = fType;
+                e.Tier = fTier;
+                e.Description = fDesc;
+                _itemInProgress.Effects.Add(e);
+            }
+            else
+            {
+                ViewBag.Message = "Error: Item can't have any more effects.";
+            }
+
+            ForgeViewModel model = new ForgeViewModel();
+            model.effects.SortEffectsLibrary(_effectLibrary);
+            model.item = _itemInProgress;
+
+            return View("TheForge", model);
+        }
+
+        [HttpPost]
+        public IActionResult ForgeResetItem()
+        {
+            _itemInProgress = new ItemInProgress();
+
+            ForgeViewModel model = new ForgeViewModel();
+            model.effects.SortEffectsLibrary(_effectLibrary);
+            model.item = _itemInProgress;
+
+            return View("TheForge", model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
