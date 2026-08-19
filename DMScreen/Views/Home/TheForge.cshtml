@@ -1,10 +1,18 @@
 ﻿@model ForgeViewModel
 
 <div class="ItemFrame">
-	@if(ViewBag.Message != null)
-	{
-		<p>@ViewBag.Message</p>
-	}
+	<div class="ItemInfoFrame">
+		@if (Model.item.Rarity != null)
+		{
+			<p>Add effects first. These are forgotten every time you add an effect.</p>
+		}
+	</div>
+	<div class="ErrorMessage">
+		@if(Model.ErrorMessage != string.Empty)
+		{
+			<p style="color:red">@Model.ErrorMessage</p>
+		}
+	</div>
 	<div class="ItemSlots">
 		@if(Model.item.Rarity!= null)
 		{
@@ -12,8 +20,9 @@
 				<label for="fName">Item Name:</label>
 				<input type="text" id="fName" name="fName" />
 				<label for="fDesc">Item Description:</label>
-				<input type="text" id="fDesc" id="fDesc" />
+				<input type="text" id="fDesc" name="fDesc" />
 				<p>Added effects:</p>
+				<div class="EffectList">
 				@if (Model.item.Effects.Count != 0)
 					{
 						@for (int i = 0; i < Model.item.Effects.Count; i++)
@@ -25,6 +34,7 @@
 							}
 						}
 					}
+				</div>
 				<input type="submit" value="Finalize" />
 			</form>
 			<br />
@@ -91,7 +101,7 @@
 		}
     </div>
     <div class="UtilityFrame">
-		@foreach (Effect e in Model.effects.SortedEffects[0])
+		@foreach (Effect e in Model.effects.SortedEffects[3])
 		{
 			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
 				<input type="hidden" íd="fType" name="fType" value="@e.Type" />

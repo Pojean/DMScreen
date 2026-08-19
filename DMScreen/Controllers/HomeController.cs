@@ -80,6 +80,9 @@ namespace DMScreen.Controllers
         [HttpPost]
         public IActionResult ForgeAddEffect(string fType, string fTier, string fName, string fDesc)
         {
+            ForgeViewModel model = new ForgeViewModel();
+            model.effects.SortEffectsLibrary(_effectLibrary);
+
             if (_itemInProgress.Effects.Count < _itemInProgress.EffectSlots)
             {
                 Effect e = new Effect();
@@ -87,16 +90,50 @@ namespace DMScreen.Controllers
                 e.Type = fType;
                 e.Tier = fTier;
                 e.Description = fDesc;
-                _itemInProgress.Effects.Add(e);
+
+                bool notFound = true;
+
+                foreach (Effect effect in _itemInProgress.Effects)
+                {
+                    if(effect.Name == e.Name)
+                    {
+                        notFound = false;
+                        model.ErrorMessage = model.ErrorMessage + "Error: Item can not have more than one of the same effect. \n";
+                    }
+                }
+
+                if(notFound)
+                {
+                    _itemInProgress.Effects.Add(e);
+                }
             }
             else
             {
-                ViewBag.Message = "Error: Item can't have any more effects.";
+                model.ErrorMessage = model.ErrorMessage + "Error: Item can't have any more effects.\n";
+            }
+
+
+            model.item = _itemInProgress;
+
+            return View("TheForge", model);
+        }
+
+        [HttpPost]
+        public IActionResult ForgeCreateItem(string fName, string fDesc)
+        {
+            _itemInProgress.Name = fName;
+            _itemInProgress.Description = fDesc;
+
+            Item forgedItem = _itemInProgress.ConvertToItem();
+            if( forgedItem.Validate())
+            {
+                _itemLibrary.itemLibrary.Add(forgedItem);
+                FileIO.SerialiseItemLibrary(_itemLibrary);
             }
 
             ForgeViewModel model = new ForgeViewModel();
             model.effects.SortEffectsLibrary(_effectLibrary);
-            model.item = _itemInProgress;
+            model.item = new ItemInProgress();
 
             return View("TheForge", model);
         }

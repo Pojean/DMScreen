@@ -32,5 +32,17 @@
                 EffectSlots += 1;
             }
         }
+
+        public Item ConvertToItem()
+        {
+            Item item = new Item();
+            item.Name = Name;
+            item.Rarity = Rarity;
+            item.EffectSlots = EffectSlots;
+            item.Description = Description;
+            item.Effects = Effects;
+
+            return item;
+        }
     }
 }

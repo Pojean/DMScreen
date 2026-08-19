@@ -12,5 +12,27 @@
         {
             Effects = new List<Effect>();
         }
+
+        public bool Validate()
+        {
+            bool validated = true;
+
+            if(Name == null)
+            { validated = false; }
+
+            if(Rarity == null)
+            { validated = false; }
+
+            if(EffectSlots == 0)
+            { validated = false; }
+
+            if(Description == null)
+            {  validated = false;}
+
+            if(Effects == null)
+            { validated = false;}
+
+            return validated;
+        }
     }
 }

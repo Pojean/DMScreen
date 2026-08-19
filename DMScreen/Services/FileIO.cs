@@ -45,7 +45,7 @@ namespace DMScreen.Services
             return line;
         }
 
-        private static void WriteFile(string targetFile, string effects)
+        private static void WriteFile(string targetFile, string content)
         {
             //here we write to a file, but rather than line by line we write all characters at once, because of how we need to handle JSON's
             //JSON's should be handled as the full file, not line by line, JSON objects can be multiple lines
@@ -59,7 +59,7 @@ namespace DMScreen.Services
 
             using (StreamWriter writer = new StreamWriter(path, false))
             {
-                writer.Write(effects);
+                writer.Write(content);
             }
 
         }
