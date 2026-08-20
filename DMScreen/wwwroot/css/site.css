@@ -19,7 +19,12 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: rgb(255, 255, 250)
+    background-color: rgb(255, 255, 250);
+}
+
+button {
+    border-radius:5px 6px;
+    background-color: rgb(240,240,240);
 }
 
 /* EFFECT LIBRARY PAGE */
@@ -99,4 +104,38 @@ body {
 
 .UtilityFrame {
     width:20%;
+}
+
+/* Item View Pages */
+
+.ItemListFrame {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.ItemListFrame button {
+    width:80%;
+    height:40px;
+    justify-content:center;
+}
+
+.ItemListEntity {
+    margin:5px;
+    width:80%
+}
+
+.ItemListEntity form {
+    display:flex;
+    justify-content:center;
+}
+
+/* Create Effect Page */
+
+.Container {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-content:center;
 }

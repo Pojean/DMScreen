@@ -11,16 +11,39 @@ namespace DMScreen.Controllers
         private EffectLibrary _effectLibrary;
         private ItemLibrary _itemLibrary;
         private static ItemInProgress _itemInProgress;
+        private EffectsViewModel _eModel;
+        private ForgeViewModel _fModel;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _effectLibrary = new EffectLibrary();
-            _effectLibrary.LoadLibrary();
-            _itemLibrary = new ItemLibrary();
-            _itemLibrary.LoadLibrary();
-            if(_itemInProgress == null)
+
+            if (_effectLibrary == null)
+            {
+                _effectLibrary = new EffectLibrary();
+                _effectLibrary.LoadLibrary();
+            }
+
+            if (_itemLibrary == null)
+            {
+                _itemLibrary = new ItemLibrary();
+                _itemLibrary.LoadLibrary()
+            }
+            if (_itemInProgress == null)
             {
                 _itemInProgress = new ItemInProgress();
+            }
+
+            if (_eModel == null)
+            {
+                _eModel = new EffectsViewModel();
+                _eModel.SortEffectsLibrary(_effectLibrary);
+            }
+
+            if (_fModel == null)
+            {
+                _fModel = new ForgeViewModel();
+                _fModel.item = _itemInProgress;
+                _fModel.effects.SortEffectsLibrary(_effectLibrary);
             }
         }
 
@@ -50,19 +73,14 @@ namespace DMScreen.Controllers
 
         public IActionResult EffectsLibrary()
         {
-            EffectsViewModel model = new EffectsViewModel();
-            model.SortEffectsLibrary(_effectLibrary);
-
-            return View(model);
+            return View(_eModel);
         }
 
         public IActionResult TheForge()
         {
-            ForgeViewModel model = new ForgeViewModel();
-            model.effects.SortEffectsLibrary(_effectLibrary);
-            model.item = _itemInProgress;
+            _fModel.item = _itemInProgress;
 
-            return View(model);
+            return View(_fModel);
         }
 
         [HttpPost]
@@ -70,19 +88,12 @@ namespace DMScreen.Controllers
         {
             _itemInProgress.SetRarity(fRarity, fMasterCraft);
 
-            ForgeViewModel model = new ForgeViewModel();
-            model.effects.SortEffectsLibrary(_effectLibrary);
-            model.item = _itemInProgress;
-
-            return View("TheForge", model);
+            return View("TheForge", _fModel);
         }
 
         [HttpPost]
         public IActionResult ForgeAddEffect(string fType, string fTier, string fName, string fDesc)
         {
-            ForgeViewModel model = new ForgeViewModel();
-            model.effects.SortEffectsLibrary(_effectLibrary);
-
             if (_itemInProgress.Effects.Count < _itemInProgress.EffectSlots)
             {
                 Effect e = new Effect();
@@ -95,27 +106,33 @@ namespace DMScreen.Controllers
 
                 foreach (Effect effect in _itemInProgress.Effects)
                 {
-                    if(effect.Name == e.Name)
+                    if (effect.Name == e.Name)
                     {
                         notFound = false;
-                        model.ErrorMessage = model.ErrorMessage + "Error: Item can not have more than one of the same effect. \n";
+                        _fModel.ErrorMessage = _fModel.ErrorMessage + "Error: Item can not have more than one of the same effect. \n";
                     }
                 }
 
-                if(notFound)
+                if (notFound)
                 {
                     _itemInProgress.Effects.Add(e);
                 }
             }
             else
             {
-                model.ErrorMessage = model.ErrorMessage + "Error: Item can't have any more effects.\n";
+                _fModel.ErrorMessage = _fModel.ErrorMessage + "Error: Item can't have any more effects.\n";
             }
 
 
-            model.item = _itemInProgress;
+            _fModel.item = _itemInProgress;
 
-            return View("TheForge", model);
+            return View("TheForge", _fModel);
+        }
+
+        [HttpPost]
+        public IActionResult ForgeSortEffects(string fRarity, string fType, string fSearch)
+        {
+
         }
 
         [HttpPost]
@@ -125,17 +142,15 @@ namespace DMScreen.Controllers
             _itemInProgress.Description = fDesc;
 
             Item forgedItem = _itemInProgress.ConvertToItem();
-            if( forgedItem.Validate())
+            if (forgedItem.Validate())
             {
                 _itemLibrary.itemLibrary.Add(forgedItem);
                 FileIO.SerialiseItemLibrary(_itemLibrary);
             }
 
-            ForgeViewModel model = new ForgeViewModel();
-            model.effects.SortEffectsLibrary(_effectLibrary);
-            model.item = new ItemInProgress();
+            _fModel.item = new ItemInProgress();
 
-            return View("TheForge", model);
+            return View("TheForge", _fModel);
         }
 
         [HttpPost]
@@ -143,11 +158,29 @@ namespace DMScreen.Controllers
         {
             _itemInProgress = new ItemInProgress();
 
-            ForgeViewModel model = new ForgeViewModel();
-            model.effects.SortEffectsLibrary(_effectLibrary);
-            model.item = _itemInProgress;
+            _fModel.item = _itemInProgress;
 
-            return View("TheForge", model);
+            return View("TheForge", _fModel);
+        }
+
+        public IActionResult ItemHistoryView()
+        {
+
+            return View(_itemLibrary);
+        }
+
+        public IActionResult ItemView(string fName)
+        {
+            Item itemToView = new Item();
+            for (int i = 0; i < _itemLibrary.itemLibrary.Count; i++)
+            {
+                if (_itemLibrary.itemLibrary[i].Name == fName)
+                {
+                    itemToView = _itemLibrary.itemLibrary[i];
+                    break;
+                }
+            }
+            return View(itemToView);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

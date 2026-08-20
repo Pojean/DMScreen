@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace DMScreen
 {
     public class Program
@@ -10,6 +12,8 @@ namespace DMScreen
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            app.Urls.Add("http://localhost:5000");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -29,6 +33,12 @@ namespace DMScreen
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+            lifetime.ApplicationStarted.Register(() =>
+            {
+                Process.Start(new ProcessStartInfo("http://localhost:5000") { UseShellExecute = true });
+            });
 
             app.Run();
         }

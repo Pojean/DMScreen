@@ -1,0 +1,21 @@
+﻿@model Item
+
+<div class="DisplayCase">
+    <div class="TitelCase">
+        @Model.Name
+    </div>
+    <div class="InfoCase">
+        <p>Wondrous item, @Model.Rarity</p>
+        <p>@Model.Description</p>
+
+        <div class="EffectCase">
+            <ul>
+
+            @foreach (Effect e in Model.Effects)
+            {
+                    <li>@e.Name</li>
+                    @e.Description
+            }
+            </ul>
+        </div>
+    </div>
