@@ -62,54 +62,78 @@
 	</div>
 </div>
 
-<div class="OptionsFrame">
-    <div class="OffenseFrame">
-		@foreach(Effect e in Model.effects.SortedEffects[0])
-		{
-			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
-				<input type="hidden" íd="fType" name="fType" value="@e.Type"/>
-				<input type="hidden" id="fTier" name="fTier" value="@e.Tier"/>
-				<input type="hidden" id="fName" name="fName" value="@e.Name" />
-				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
-				<button type="submit" value="@e.Name">@e.Name</button>
-			</form>
-		}
+<div class="SearchFrame">
+	@if (Model.item.Rarity != null)
+	{
+		<form asp-action="ForgeSortEffects" asp-area="Home" method="post" target="_self">
+			<label for="fSRarity">Sort by Rarity:</label>
+			<select id="fSRarity" name="fSRarity">
+				<option value="None">None</option>
+				<option value="Common">Common</option>
+				<option value="Uncommon">Uncommon</option>
+				<option value="Rare">Rare</option>
+				<option value="Very Rare">Very Rare</option>
+				<option value="Legendary">Legendary</option>
+				<option value="Artifact">Artifact</option>
+			</select>
+			<label for="fSSearch">Search for:</label>
+			<input type="text" id="fSSearch" name="fSSearch" />
+			<button type="submit">Apply Filters</button>
+		</form>
+	}
+</div>
 
-    </div>
-    <div class="DefenseFrame">
-		@foreach (Effect e in Model.effects.SortedEffects[1])
-		{
-			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
-				<input type="hidden" íd="fType" name="fType" value="@e.Type" />
-				<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
-				<input type="hidden" id="fName" name="fName" value="@e.Name" />
-				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
-				<button type="submit" value="@e.Name">@e.Name</button>
-			</form>
-		}
-    </div>
-    <div class="RestorationFrame">
-		@foreach (Effect e in Model.effects.SortedEffects[2])
-		{
-			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
-				<input type="hidden" íd="fType" name="fType" value="@e.Type" />
-				<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
-				<input type="hidden" id="fName" name="fName" value="@e.Name" />
-				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
-				<button type="submit" value="@e.Name">@e.Name</button>
-			</form>
-		}
-    </div>
-    <div class="UtilityFrame">
-		@foreach (Effect e in Model.effects.SortedEffects[3])
-		{
-			<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
-				<input type="hidden" íd="fType" name="fType" value="@e.Type" />
-				<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
-				<input type="hidden" id="fName" name="fName" value="@e.Name" />
-				<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
-				<button type="submit" value="@e.Name">@e.Name</button>
-			</form>
-		}
-	</div>
+<div class="OptionsFrame">
+	@if (Model.item.Rarity != null)
+	{
+		<div class="OffenseFrame">
+			@foreach (Effect e in Model.effects.SortedEffects[0])
+			{
+				<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+					<input type="hidden" íd="fType" name="fType" value="@e.Type"/>
+					<input type="hidden" id="fTier" name="fTier" value="@e.Tier"/>
+					<input type="hidden" id="fName" name="fName" value="@e.Name" />
+					<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+					<button type="submit" value="@e.Name">@e.Name</button>
+				</form>
+			}
+
+		</div>
+		<div class="DefenseFrame">
+			@foreach (Effect e in Model.effects.SortedEffects[1])
+			{
+				<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+					<input type="hidden" íd="fType" name="fType" value="@e.Type" />
+					<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
+					<input type="hidden" id="fName" name="fName" value="@e.Name" />
+					<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+					<button type="submit" value="@e.Name">@e.Name</button>
+				</form>
+			}
+		</div>
+		<div class="RestorationFrame">
+			@foreach (Effect e in Model.effects.SortedEffects[2])
+			{
+				<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+					<input type="hidden" íd="fType" name="fType" value="@e.Type" />
+					<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
+					<input type="hidden" id="fName" name="fName" value="@e.Name" />
+					<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+					<button type="submit" value="@e.Name">@e.Name</button>
+				</form>
+			}
+		</div>
+		<div class="UtilityFrame">
+			@foreach (Effect e in Model.effects.SortedEffects[3])
+			{
+				<form asp-action="ForgeAddEffect" asp-area="Home" method="post" target="_self">
+					<input type="hidden" íd="fType" name="fType" value="@e.Type" />
+					<input type="hidden" id="fTier" name="fTier" value="@e.Tier" />
+					<input type="hidden" id="fName" name="fName" value="@e.Name" />
+					<input type="hidden" id="fDesc" name="fDesc" value="@e.Description" />
+					<button type="submit" value="@e.Name">@e.Name</button>
+				</form>
+			}
+		</div>
+	}
 </div>

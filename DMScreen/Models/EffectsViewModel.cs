@@ -34,5 +34,42 @@
                 }
             }
         }
+
+        public List<List<Effect>> SortByConditions(string Rarity, string searchTerm)
+        {
+            List<List<Effect>> local = SortedEffects;            //sort for rarity
+
+            local = SortForTerm(searchTerm, local);
+            local = SortForRarity(Rarity, local);
+
+            return local;
+        }
+
+        private List<List<Effect>> SortForRarity(string Rarity, List<List<Effect>> library)
+        {
+            if (Rarity != "None")
+            {
+                foreach(List<Effect> list in library)
+                {
+                    list.RemoveAll(obj => obj.Tier != Rarity); //we use a delegate to remove all objects where the object.tier does not match string Rarity
+                }
+            }
+
+            return library;
+        }
+
+        private List<List<Effect>> SortForTerm(string term, List<List<Effect>> library)
+        {
+            if(term != null)
+            {
+                foreach(List<Effect> list in library)
+                {
+                    list.RemoveAll(obj => !obj.Name.Contains(term, StringComparison.OrdinalIgnoreCase)); //we do the same here, but we remove any object where object.Name does not contain the string term
+                    // StringCOmparison.OrdinalIgnoreCase ensures that we ignore upper and lower case lettering. 
+                }
+            }
+
+            return library;
+        }
     }
 }
