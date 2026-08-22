@@ -106,6 +106,12 @@ button {
     width:20%;
 }
 
+.SearchFrame {
+    display:flex;
+    justify-content:center;
+    margin:20px 0px 20px 0px;
+}
+
 /* Item View Pages */
 
 .ItemListFrame {

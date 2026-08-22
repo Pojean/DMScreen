@@ -13,7 +13,8 @@ namespace DMScreen
 
             var app = builder.Build();
 
-            app.Urls.Add("http://localhost:5000");
+            //comment out below line if running a debug build
+            //app.Urls.Add("http://localhost:5000");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -34,11 +35,13 @@ namespace DMScreen
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
-            lifetime.ApplicationStarted.Register(() =>
-            {
-                Process.Start(new ProcessStartInfo("http://localhost:5000") { UseShellExecute = true });
-            });
+            //comment out the below section if doing a debug build
+
+            //var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+            //lifetime.ApplicationStarted.Register(() =>
+            //{
+            //    Process.Start(new ProcessStartInfo("http://localhost:5000") { UseShellExecute = true });
+            //});
 
             app.Run();
         }

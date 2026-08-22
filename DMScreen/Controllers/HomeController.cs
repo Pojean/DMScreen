@@ -26,8 +26,9 @@ namespace DMScreen.Controllers
             if (_itemLibrary == null)
             {
                 _itemLibrary = new ItemLibrary();
-                _itemLibrary.LoadLibrary()
+                _itemLibrary.LoadLibrary();
             }
+
             if (_itemInProgress == null)
             {
                 _itemInProgress = new ItemInProgress();
@@ -130,9 +131,13 @@ namespace DMScreen.Controllers
         }
 
         [HttpPost]
-        public IActionResult ForgeSortEffects(string fRarity, string fType, string fSearch)
+        public IActionResult ForgeSortEffects(string fSRarity, string fSSearch)
         {
+            ForgeViewModel localFilteredEffects = new ForgeViewModel();
+            localFilteredEffects.item = _itemInProgress;
+            localFilteredEffects.effects.SortedEffects = _eModel.SortByConditions(fSRarity, fSSearch);
 
+            return View("TheForge", localFilteredEffects);
         }
 
         [HttpPost]
