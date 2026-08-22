@@ -27,9 +27,10 @@ Toggle
 		<div class="table">
 			<table>
 				<colgroup>
+					<col style="width:10%" />
 					<col style="width:15%" />
-					<col style="width:15%" />
-					<col style="width:15%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
 					<col style="width:55%" />
 				</colgroup>
 				<thead>
@@ -37,6 +38,7 @@ Toggle
 						<th>Name</th>
 						<th>Type</th>
 						<th>Tier</th>
+						<th>Item Slot</th>
 						<th>Description</th>
 					</tr>
 				</thead>
@@ -48,6 +50,7 @@ Toggle
 							<td>@e.Name</td>
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
+							<td>@e.ItemSlot</td>
 							<td>@e.Description</td>
 						</tr>
 					}
@@ -64,9 +67,10 @@ Toggle
 		<div class="table">
 			<table>
 				<colgroup>
+					<col style="width:10%" />
 					<col style="width:15%" />
-					<col style="width:15%" />
-					<col style="width:15%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
 					<col style="width:55%" />
 				</colgroup>
 				<thead>
@@ -74,6 +78,7 @@ Toggle
 						<th>Name</th>
 						<th>Type</th>
 						<th>Tier</th>
+						<th>Item Slot</th>
 						<th>Description</th>
 					</tr>
 				</thead>
@@ -84,6 +89,7 @@ Toggle
 							<td>@e.Name</td>
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
+							<td>@e.ItemSlot</td>
 							<td>@e.Description</td>
 						</tr>
 					}
@@ -99,9 +105,10 @@ Toggle
 		<div class="table">
 			<table>
 				<colgroup>
+					<col style="width:10%" />
 					<col style="width:15%" />
-					<col style="width:15%" />
-					<col style="width:15%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
 					<col style="width:55%" />
 				</colgroup>
 				<thead>
@@ -109,6 +116,7 @@ Toggle
 						<th>Name</th>
 						<th>Type</th>
 						<th>Tier</th>
+						<th>Item Slot</th>
 						<th>Description</th>
 					</tr>
 				</thead>
@@ -119,6 +127,7 @@ Toggle
 							<td>@e.Name</td>
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
+							<td>@e.ItemSlot</td>
 							<td>@e.Description</td>
 						</tr>
 					}
@@ -135,27 +144,30 @@ Toggle
 		<div class="table">
 			<table>
 				<colgroup>
+					<col style="width:10%" />
 					<col style="width:15%" />
-					<col style="width:15%" />
-					<col style="width:15%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
 					<col style="width:55%" />
 				</colgroup>
 				<thead>
 				<tr>
-					<th>Name</th>
-					<th>Type</th>
-					<th>Tier</th>
-					<th>Description</th>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Tier</th>
+						<th>Item Slot</th>
+						<th>Description</th>
 				</tr>
 				</thead>
 				<tbody>
 				@foreach (Effect e in Model.SortedEffects[3])
 				{
 					<tr>
-						<td>@e.Name</td>
-						<td>@e.Type</td>
-						<td>@e.Tier</td>
-						<td>@e.Description</td>
+							<td>@e.Name</td>
+							<td>@e.Type</td>
+							<td>@e.Tier</td>
+							<td>@e.ItemSlot</td>
+							<td>@e.Description</td>
 					</tr>
 				}
 				</tbody>
