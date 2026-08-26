@@ -28,10 +28,11 @@ Toggle
 			<table>
 				<colgroup>
 					<col style="width:10%" />
-					<col style="width:15%" />
 					<col style="width:10%" />
 					<col style="width:10%" />
-					<col style="width:55%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
+					<col style="width:50%" />
 				</colgroup>
 				<thead>
 					<tr>
@@ -39,6 +40,7 @@ Toggle
 						<th>Type</th>
 						<th>Tier</th>
 						<th>Item Slot</th>
+						<th>Requires Attunement</th>
 						<th>Description</th>
 					</tr>
 				</thead>
@@ -51,6 +53,7 @@ Toggle
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
 							<td>@e.ItemSlot</td>
+							<td>@e.requiresAttunement</td>
 							<td>@e.Description</td>
 						</tr>
 					}
@@ -68,10 +71,11 @@ Toggle
 			<table>
 				<colgroup>
 					<col style="width:10%" />
-					<col style="width:15%" />
 					<col style="width:10%" />
 					<col style="width:10%" />
-					<col style="width:55%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
+					<col style="width:50%" />
 				</colgroup>
 				<thead>
 					<tr>
@@ -79,10 +83,12 @@ Toggle
 						<th>Type</th>
 						<th>Tier</th>
 						<th>Item Slot</th>
+						<th>Requires Attunement</th>
 						<th>Description</th>
 					</tr>
 				</thead>
 				<tbody>
+
 					@foreach (Effect e in Model.SortedEffects[1])
 					{
 						<tr>
@@ -90,9 +96,11 @@ Toggle
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
 							<td>@e.ItemSlot</td>
+							<td>@e.requiresAttunement</td>
 							<td>@e.Description</td>
 						</tr>
 					}
+
 				</tbody>
 			</table>
 		</div>
@@ -106,10 +114,11 @@ Toggle
 			<table>
 				<colgroup>
 					<col style="width:10%" />
-					<col style="width:15%" />
 					<col style="width:10%" />
 					<col style="width:10%" />
-					<col style="width:55%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
+					<col style="width:50%" />
 				</colgroup>
 				<thead>
 					<tr>
@@ -117,10 +126,12 @@ Toggle
 						<th>Type</th>
 						<th>Tier</th>
 						<th>Item Slot</th>
+						<th>Requires Attunement</th>
 						<th>Description</th>
 					</tr>
 				</thead>
 				<tbody>
+
 					@foreach (Effect e in Model.SortedEffects[2])
 					{
 						<tr>
@@ -128,11 +139,12 @@ Toggle
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
 							<td>@e.ItemSlot</td>
+							<td>@e.requiresAttunement</td>
 							<td>@e.Description</td>
 						</tr>
 					}
-				</tbody>
 
+				</tbody>
 			</table>
 		</div>
 	</div>
@@ -145,31 +157,36 @@ Toggle
 			<table>
 				<colgroup>
 					<col style="width:10%" />
-					<col style="width:15%" />
 					<col style="width:10%" />
 					<col style="width:10%" />
-					<col style="width:55%" />
+					<col style="width:10%" />
+					<col style="width:10%" />
+					<col style="width:50%" />
 				</colgroup>
 				<thead>
-				<tr>
+					<tr>
 						<th>Name</th>
 						<th>Type</th>
 						<th>Tier</th>
 						<th>Item Slot</th>
+						<th>Requires Attunement</th>
 						<th>Description</th>
-				</tr>
+					</tr>
 				</thead>
 				<tbody>
-				@foreach (Effect e in Model.SortedEffects[3])
-				{
-					<tr>
+
+					@foreach (Effect e in Model.SortedEffects[3])
+					{
+						<tr>
 							<td>@e.Name</td>
 							<td>@e.Type</td>
 							<td>@e.Tier</td>
 							<td>@e.ItemSlot</td>
+							<td>@e.requiresAttunement</td>
 							<td>@e.Description</td>
-					</tr>
-				}
+						</tr>
+					}
+
 				</tbody>
 			</table>
 		</div>
