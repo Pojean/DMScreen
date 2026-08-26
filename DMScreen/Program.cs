@@ -13,8 +13,6 @@ namespace DMScreen
 
             var app = builder.Build();
 
-            //comment out below line if running a debug build
-            //app.Urls.Add("http://localhost:5000");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -22,6 +20,9 @@ namespace DMScreen
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+           
+                //comment out below line if running a debug build
+                app.Urls.Add("http://localhost:5000");
             }
 
             app.UseHttpsRedirection();
@@ -35,13 +36,16 @@ namespace DMScreen
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            //comment out the below section if doing a debug build
 
-            //var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
-            //lifetime.ApplicationStarted.Register(() =>
-            //{
-            //    Process.Start(new ProcessStartInfo("http://localhost:5000") { UseShellExecute = true });
-            //});
+            //comment out the below section if doing a debug build
+            if(!app.Environment.IsDevelopment())
+            { 
+                var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+                lifetime.ApplicationStarted.Register(() =>
+                {
+                    Process.Start(new ProcessStartInfo("http://localhost:5000") { UseShellExecute = true });
+                });
+            }
 
             app.Run();
         }

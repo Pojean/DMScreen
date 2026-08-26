@@ -27,6 +27,24 @@ button {
     background-color: rgb(240,240,240);
 }
 
+/* CREATE EFFECT PAGE */
+
+.FormContainer form{
+    display:flex;
+    flex-direction:column;
+    gap: 15px;
+    
+}
+
+.FormContainer form select {
+    width:10%;
+}
+
+.FormContainer .fDesc {
+    width:100%;
+    height:200px;
+}
+
 /* EFFECT LIBRARY PAGE */
 
 .tableBox {

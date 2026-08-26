@@ -6,6 +6,7 @@
         public string Tier { get; set; }
         public string Type { get; set; }
         public string ItemSlot { get; set; }
+        public string requiresAttunement { get; set;  }
         public string Description { get; set; }
 
         public Effect()
@@ -17,7 +18,8 @@
         {
             bool validated = false;
 
-            if (Name != string.Empty && Tier != string.Empty && Type != string.Empty && Description != string.Empty)
+            if (Name != string.Empty && Tier != string.Empty && Type != string.Empty && Description != string.Empty
+                && ItemSlot != string.Empty && requiresAttunement != string.Empty)
             {
                 validated = true;
             }

@@ -5,7 +5,7 @@
     <div class="EffectHeadline">
         <h1> Create a new Effect</h1>
     </div>
-    <div class="Form">
+    <div class="FormContainer">
 
         <form asp-action="SaveEffect" asp-area="Home" method="post" target="_self">
             <label for="fName">Name</label>
@@ -35,10 +35,15 @@
                 <option value="Ranged Weapon">Ranged Weapon</option>
                 <option value="Shield">Shield</option>
             </select>
+            <label for="fAttunement">Requires Attunement:</label>
+            <select id="fAttunement" name="fAttunement">
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
         <label for="fDesc">Description</label>
-        <input type="text" id="fDesc" name="fDesc" />
+        <textarea id="fDesc" name="fDesc" class="fDesc"></textarea>
         <input type="submit" value="Submit" />
-    </form>
+        </form>
 
     </div>
 

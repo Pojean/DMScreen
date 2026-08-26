@@ -59,13 +59,14 @@ namespace DMScreen.Controllers
         }
 
         [HttpPost]
-        public IActionResult SaveEffect(string fName, string fTier, string fType,string fSlot, string fDesc)
+        public IActionResult SaveEffect(string fName, string fTier, string fType,string fSlot, string fAttunement, string fDesc)
         {
             Effect local = new Effect();
             local.Name = fName;
             local.Tier = fTier;
             local.Type = fType;
             local.ItemSlot = fSlot;
+            local.requiresAttunement = fAttunement;
             local.Description = fDesc;
 
             _effectLibrary.Add(local);
