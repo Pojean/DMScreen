@@ -1,0 +1,380 @@
+{
+  "effectsLibrary": [
+    {
+      "Name": "Steady Hand",
+      "Tier": "Common",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "After you miss an attack, gain a \u002B1 bonus to your next attack roll"
+    },
+    {
+      "Name": "Keen Edge",
+      "Tier": "Common",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, deal \u002B2 damage of your weapons damage type on a damage roll."
+    },
+    {
+      "Name": "Lucky Touch",
+      "Tier": "Common",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per round, re-roll a single damage die that shows a 1"
+    },
+    {
+      "Name": "Spite",
+      "Tier": "Common",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per round, when you miss a melee weapon attack, deal 1 damage anyway."
+    },
+    {
+      "Name": "Piercing Strike",
+      "Tier": "Common",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, as part of an attack roll, the targets AC count as its value -1"
+    },
+    {
+      "Name": "Hunter\u0027s Instinct",
+      "Tier": "Common",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, gain advantage on your first attack roll against a creature that hasn\u0027t acted yet"
+    },
+    {
+      "Name": "Minor Fortification",
+      "Tier": "Common",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Gain 1 temporary Hit Point after a short or long rest."
+    },
+    {
+      "Name": "Minor Guard",
+      "Tier": "Common",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Gain \u002B1 to AC until the start of your next turn when you take the dodge action."
+    },
+    {
+      "Name": "Surefooted",
+      "Tier": "Common",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, you can choose to have advantage on a saving throw against being knocked prone or shoved."
+    },
+    {
+      "Name": "Iron Lungs",
+      "Tier": "Common",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "You can hold your breath for twice the normal amount of time."
+    },
+    {
+      "Name": "Feather\u0027s Descent",
+      "Tier": "Common",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When you take fall damage, you take 1 less dice of damage (minimum of 1) e.g: if you fall 10 feet you take 1d10 fall damage, but if you fall 20 feet, you still take only 1d10 fall damage."
+    },
+    {
+      "Name": "Clear Mind",
+      "Tier": "Common",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, you have advantage on your next saving throw against being frightened."
+    },
+    {
+      "Name": "Minor Vitality",
+      "Tier": "Common",
+      "Type": "Restorative",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, you can choose to regain 1d4 hit points as a bonus action."
+    },
+    {
+      "Name": "Third Wind",
+      "Tier": "Common",
+      "Type": "Restorative",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, you can choose to regain 1d6\u002BConstitution modifier amount of hit points as a bonus action."
+    },
+    {
+      "Name": "Quick Mind",
+      "Tier": "Common",
+      "Type": "Restorative",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When you roll a Hit Die to regain hit points, add \u002B1 to the result."
+    },
+    {
+      "Name": "Flicker",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, you can produce a small harmless spark of flame, it can start campfires and other easily ignited materials, but is not hot enough to harm a creature."
+    },
+    {
+      "Name": "Traveler\u0027s Comfort",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When extended or intese travel forces you to make a saving throw against exhaustion, you have advantage on the first one. Recharges when you finish a long rest."
+    },
+    {
+      "Name": "Cleanse",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, you can purify a small container of water or a meal of toxins and disease."
+    },
+    {
+      "Name": "Swift Step",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per short or long rest, when you take the dash action, add an additional 10 feet to the total movement distance you can move."
+    },
+    {
+      "Name": "Fluid Movement",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, as a bonus action, you can choose to ignore opportunity attacks until the end of your turn."
+    },
+    {
+      "Name": "Candle\u0027s Glow",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "At will, the item infused with this effect can shed a dim light in a 5 foot radius."
+    },
+    {
+      "Name": "Calm Presence",
+      "Tier": "Common",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, you can choose to have advantage on a single Persuasion(Charisma) check."
+    },
+    {
+      "Name": "Masterwork",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Weapon",
+      "requiresAttunement": "No",
+      "Description": "The item gains a \u002B1 bonus to attack and damage rolls."
+    },
+    {
+      "Name": "Elemental",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Weapon",
+      "requiresAttunement": "No",
+      "Description": "The items gains an additional 1d4 damage on a hit, of an elemental type of your choice (Fire, Cold, Lightning, Acid, Thunder)."
+    },
+    {
+      "Name": "Overdraw",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Ranged Weapon",
+      "requiresAttunement": "No",
+      "Description": "When making an attack, you can choose to take damage to overdraw the weapon, when doing so, the weapon deals an additional 1d6 damge of its damage type, and you take 2 damage. Each time you repeat this effect before a short rest, the damage taken increases by 2."
+    },
+    {
+      "Name": "Flourish",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Weapon",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, when you hit with an attack, you can do a flourish, giving your target disadvantage on their next attack roll."
+    },
+    {
+      "Name": "Hindering Strike",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Weapon",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, as part of an attack, you can cause the target to loose half their speed until the end of their next turn."
+    },
+    {
+      "Name": "Incendiary",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Weapon",
+      "requiresAttunement": "No",
+      "Description": "Once per shor rest as part of an attack, you can cause your weapon to release stored flammable liquid, causing a small explosion. That attack deals an additional 2d6 fire damage. You can do this after you learn if you have hit or not."
+    },
+    {
+      "Name": "Spiteful",
+      "Tier": "Uncommon",
+      "Type": "Offense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When you take damage, you mad add a \u002B2 bonus to damage to the next attack you make. This bonus disappears if you miss too. You can do this a number of times equal to your proficiency modifier, reganing all uses after a short rest."
+    },
+    {
+      "Name": "Masterwork",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "The item gains a \u002B1 bonus to AC."
+    },
+    {
+      "Name": "Resistance",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "The item grants resistance to an elemental damage type (Fire, Cold, Lightning, Thunder)."
+    },
+    {
+      "Name": "Reinforced",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "The item is reinforced with plating. As a reaction, the player may roll 1d8 \u002B their Constitution modifier and reduce the damage they take from a hit by that number. This can be done a number of times equal to their proficiency modifier per short or long rest."
+    },
+    {
+      "Name": "Taunting Smack",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Shield",
+      "requiresAttunement": "No",
+      "Description": "As an action, you canslam your shield with your weapon, drawing attention to yourself. All hostile creatures in a 15 foot radius centered on you must make a Wisdom saving throw with a DC equal to 8 \u002B proficiency modifier \u002B your strength modifier, or have disadvantage on attacking anyone by you until the end of their turn."
+    },
+    {
+      "Name": "Shield Charge",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Shield",
+      "requiresAttunement": "No",
+      "Description": "As an attack, you can charge forward with your shield. To do this, you must have at least 10 feet of movement left on the turn. You may then move up to 20 feet in a straight line towards a target that you can reach. When you reach the target, make a contested Strength(Athletics) check, on a success, the target takes 1d6 \u002B Strength modifier bludgeoning damage per 10 feet you moved."
+    },
+    {
+      "Name": "Nimble",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "The armor becomes lighter, allowing you to move more deftly. Your movement speed is increased by 5 feet while you wear the armor, and you gain a \u002B1 bonus to Dexterity saving throws."
+    },
+    {
+      "Name": "Iron Will",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, you can choose to have advantage on a Wisdom saving throw."
+    },
+    {
+      "Name": "Gritted Teeth",
+      "Tier": "Uncommon",
+      "Type": "Defense",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When you are hit and drop below half your maximum hit points, you can resistance to all damage except psychic until the end of your next round."
+    },
+    {
+      "Name": "Vitality",
+      "Tier": "Uncommon",
+      "Type": "Restorative",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest, you may choose to regain 1d6 \u002B Consitution modifier hit points as a bonus action."
+    },
+    {
+      "Name": "Lesser Positive Energy Matrix",
+      "Tier": "Uncommon",
+      "Type": "Restorative",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When you cause a creature to regain hit points in a way that rolls dice, you can instead count the dice as having rolled their maximum. You can do this once per short rest."
+    },
+    {
+      "Name": "Sharing and caring",
+      "Tier": "Uncommon",
+      "Type": "Restorative",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "Once per short rest when you regain hit points, you can grant another creature within 5 feet of you up to half the amount of hit points you gained as additional healing. (rounded up)."
+    },
+    {
+      "Name": "Ceramic Plating",
+      "Tier": "Uncommon",
+      "Type": "Restorative",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "You reinforce your armor with ceramic plating that slowly gets destroyed. You can rebuild it during a short rest. Every short rest, you gain 10 temporary hit points as a result of this."
+    },
+    {
+      "Name": "Enduring Spirit",
+      "Tier": "Uncommon",
+      "Type": "Restorative",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "You regain \u002B2 hit points whenever you roll a hit dice during a short rest."
+    },
+    {
+      "Name": "Defensive Mesh",
+      "Tier": "Uncommon",
+      "Type": "Utility",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "As a reaction when you are attacked by a melee weapon attack, you can make a contested Strength (Athletics) or Dexterity (Acrobatics) check against your attacker, if you win, you do a quick twitchy movement that yanks the weapon out of your opponents hand and disarms."
+    },
+    {
+      "Name": "Caltrop Dispenser",
+      "Tier": "Uncommon",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "As a bonus action, you can cause a small pouch of caltrops attatched to your armor to burst, spreading them in a small area. The caltrops spread in a 10 foot radius centered on a point you choose within 15 feet of you. The caltrops make the area difficult terrain, and for every 5 feet crossed, any creature takes 1d4 piercing damage."
+    },
+    {
+      "Name": "Sure Step",
+      "Tier": "Uncommon",
+      "Type": "Utility",
+      "ItemSlot": "Armor",
+      "requiresAttunement": "No",
+      "Description": "As a bonus action, you can ignore difficult terrain for 1 minute. Can not be used again intil after you complete a short or long rest."
+    },
+    {
+      "Name": "Whirling Pose",
+      "Tier": "Uncommon",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "When you take the dodge action, you grant allies within 5 feet of you a \u002B1 bonus to AC until your next turn."
+    },
+    {
+      "Name": "Spellbreaker",
+      "Tier": "Uncommon",
+      "Type": "Utility",
+      "ItemSlot": "Any",
+      "requiresAttunement": "No",
+      "Description": "Once per long rest, when you hit a creature that is concentrating, you may impose disadvantage on the check."
+    }
+  ]
+}

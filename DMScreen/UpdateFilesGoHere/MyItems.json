@@ -1,0 +1,20 @@
+{
+  "itemLibrary": [
+    {
+      "Name": "The Tester\u0027s Dream",
+      "Rarity": "Uncommon",
+      "EffectSlots": 2,
+      "Description": "It\u0027s all just a dream.",
+      "Effects": [
+        {
+          "Name": "Steady Hand",
+          "Tier": "Common",
+          "Type": "Offense",
+          "ItemSlot": null,
+          "requiresAttunement": null,
+          "Description": "After you miss an attack, gain a \u002B1 bonus to your next attack roll"
+        }
+      ]
+    }
+  ]
+}
