@@ -11,6 +11,8 @@ namespace DMScreen.Controllers
         private EffectLibrary _effectLibrary;
         private ItemLibrary _itemLibrary;
         private static ItemInProgress _itemInProgress;
+
+        private MyItemLibrary _myItemLibrary;
         private EffectsViewModel _eModel;
         private ForgeViewModel _fModel;
         public HomeController(ILogger<HomeController> logger)
@@ -32,6 +34,12 @@ namespace DMScreen.Controllers
             if (_itemInProgress == null)
             {
                 _itemInProgress = new ItemInProgress();
+            }
+
+            if( _myItemLibrary == null)
+            {
+                _myItemLibrary = new MyItemLibrary();
+                _myItemLibrary.LoadLibrary();
             }
 
             if (_eModel == null)
@@ -148,6 +156,7 @@ namespace DMScreen.Controllers
             _itemInProgress.Name = fName;
             _itemInProgress.Description = fDesc;
 
+
             Item forgedItem = _itemInProgress.ConvertToItem();
             if (forgedItem.Validate())
             {
@@ -188,6 +197,24 @@ namespace DMScreen.Controllers
                 }
             }
             return View(itemToView);
+        }
+
+        public IActionResult MyItems()
+        {
+
+            return View(_myItemLibrary);
+        }
+
+        public IActionResult AddToMyItems(string fName)
+        {
+            Item currentItem = new Item();
+            currentItem = _itemLibrary.itemLibrary.FirstOrDefault(x => x.Name == fName);
+
+            _myItemLibrary.itemLibrary.Add(currentItem);
+            _myItemLibrary.SaveLibrary();
+
+            ViewBag.Message = "Item added";
+            return View("ItemView", currentItem);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

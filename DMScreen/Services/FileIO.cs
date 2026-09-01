@@ -1,4 +1,5 @@
-﻿using DMScreen.Models;
+﻿using AspNetCoreGeneratedDocument;
+using DMScreen.Models;
 using System.Text.Json;
 
 namespace DMScreen.Services
@@ -15,6 +16,15 @@ namespace DMScreen.Services
             // Here we serialise an item into a json string, and then call WriteFile to add it to the Items file
             string targetFile = "Items.json";
             string itemString = JsonSerializer.Serialize(items, new JsonSerializerOptions { WriteIndented = true});
+
+            WriteFile(targetFile, itemString);
+        }
+
+        public static void SerialiseItemLibrary(MyItemLibrary items) //overload for MyItemLibrary
+        {
+            // Here we serialise an item into a json string, and then call WriteFile to add it to the Items file
+            string targetFile = "MyItems.json";
+            string itemString = JsonSerializer.Serialize(items, new JsonSerializerOptions { WriteIndented = true });
 
             WriteFile(targetFile, itemString);
         }

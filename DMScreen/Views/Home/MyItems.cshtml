@@ -1,0 +1,15 @@
+﻿@model MyItemLibrary
+
+<div class="ItemLibraryFrame">
+    <div class="ItemListFrame">
+        @foreach (Item i in Model.itemLibrary)
+        {
+            <div class="ItemListEntity">
+                <form asp-action="ItemView" asp-area="Home" method="post">
+                    <input type="hidden" name="fName" value="@i.Name" />
+                    <button type="submit">@i.Name</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>

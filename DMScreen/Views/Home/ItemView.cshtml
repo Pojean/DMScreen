@@ -11,11 +11,16 @@
         <div class="EffectCase">
             <ul>
 
-            @foreach (Effect e in Model.Effects)
-            {
+                @foreach (Effect e in Model.Effects)
+                {
                     <li>@e.Name</li>
                     @e.Description
-            }
+
+                }
             </ul>
+
+            <div class="message">
+                @ViewBag.Message
+            </div>
         </div>
     </div>

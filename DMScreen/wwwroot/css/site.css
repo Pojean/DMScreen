@@ -147,12 +147,17 @@ button {
 
 .ItemListEntity {
     margin:5px;
-    width:80%
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
 }
 
-.ItemListEntity form {
-    display:flex;
-    justify-content:center;
+.ItemListEntity .ItemViewButton {
+    width:400px;
+}
+.ItemListEntity .ItemEquipButton {
+    width:200px;
 }
 
 /* Create Effect Page */
